@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', authRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/', (req, res, next) => {
     res.render('index', { title: 'Google oAuth Example' });

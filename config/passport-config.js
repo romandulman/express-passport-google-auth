@@ -5,12 +5,13 @@ const keys = require('./keys');
 
 passport.use(
     new GoogleStrategy({
-        callbackURL:'/redirect',
+        callbackURL:'/auth/google/redirect',
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret
 
-    }, () =>{
-
+    }, (accessToken,refreshToken,profile,done) =>{
+      //  console.log(profile);
+        console.log('ok')
     })
 
 )

@@ -10,10 +10,8 @@ router.get('/login',(req,res)=>{
 router.get('/google',passport.authenticate('google',{
     scope:['profile']
 }));
-router.get('/redirect',(req,res)=>{
-
+router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
    res.send('Logged in with Google')
-
 });
 
 router.get('/logout',(req,res)=>{
