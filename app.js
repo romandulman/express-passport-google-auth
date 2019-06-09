@@ -5,6 +5,8 @@ var logger = require('morgan');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 var authRoutes = require('./routes/auth-routes');
+const passportSetup = require('./config/passport-config');
+
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
