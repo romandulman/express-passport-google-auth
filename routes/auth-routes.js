@@ -12,17 +12,25 @@ router.get('/google',
         scope: ['https://www.googleapis.com/auth/plus.login']
 
     }));
+router.get('/facebook',
+    passport.authenticate('facebook'));
 
+router.get('/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    (req, res)=> {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+    });
 
 router.get('/google/redirect',
     passport.authenticate('google', {failureRedirect: '/login'}),
-    function (req, res) {
+    (req, res) => {
         res.redirect('/');
     });
 
 
 router.get('/logout', (req, res) => {
-
+    res.redirect('/');
 });
 
 module.exports = router;
