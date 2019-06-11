@@ -10,9 +10,16 @@ passport.use(
         clientSecret: keys.google.clientSecret,
         callbackURL: 'http://localhost:3000/auth/google/redirect'
     }, (accessToken, refreshToken, profile, done) => {
+
+        new User({
+            username: profile.displayName,
+            googleId: profile.id
+        }).save()
+            .then
         console.log(profile);
     })
 );
+
 passport.use(new FacebookStrategy({
         clientID: keys.facebook.clientID,
         clientSecret: keys.facebook.clientSecret,

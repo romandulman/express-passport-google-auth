@@ -1,13 +1,19 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
-var authRoutes = require('./routes/auth-routes');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+const authRoutes = require('./routes/auth-routes');
+const keys = require('./config/keys')
 const passportSetup = require('./config/passport-config');
 
-var app = express();
+const app = express();
+
+mongoose.connect(keys.authMongoDB.dbURL, () =>{
+
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
