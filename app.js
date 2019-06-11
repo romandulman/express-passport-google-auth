@@ -4,10 +4,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 const authRoutes = require('./routes/auth-routes');
-const keys = require('./config/keys')
-const passportSetup = require('./config/passport-config');
+const keys = require('./config/keys');
+require('./config/passport-config');
 
 const app = express();
 
