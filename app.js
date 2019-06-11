@@ -12,7 +12,7 @@ const passportSetup = require('./config/passport-config');
 const app = express();
 
 mongoose.connect(keys.authMongoDB.dbURL, () =>{
-
+console.log('mongo connected')
 });
 
 app.set('views', path.join(__dirname, 'views'));
